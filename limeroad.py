@@ -7,12 +7,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 import selenium
 import time
 import json
+from selenium.webdriver.chrome.options import Options
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument('--no-sandbox')
 # from scrapy.selector import Selector
 
 # cap = DesiredCapabilities().FIREFOX
 # cap["marionette"] = False
-driver = webdriver.Chrome(executable_path='/Users/harris/desktop/rapas/rapas/spiders/chromedriver')
-driver.get("https://www.limeroad.com/search/nike%20footwear")
+driver = webdriver.Chrome(executable_path = '/usr/lib/chromium-browser/chromedriver', options=chrome_options)
+driver.get("https://www.limeroad.com/search/nike%20shoes")
 
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(text(), 'ENGLISH')]")))
