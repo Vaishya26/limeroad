@@ -46,7 +46,7 @@ def get_products():
     for product in products:
         try:
             url = product.find_element_by_css_selector('a.dB').get_attribute('href')
-            title_driver = webdriver.Chrome(executable_path='/Users/harris/desktop/rapas/rapas/spiders/chromedriver')
+            title_driver = webdriver.Chrome(executable_path = '/usr/lib/chromium-browser/chromedriver', options=chrome_options)
             title_driver.get(url)
             title = title_driver.find_element_by_css_selector('#views > .conn > .fs0 > .w560 > .bs > h1').text
             title_driver.close()
